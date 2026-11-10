@@ -5,18 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
 <meta name="robots" content="noindex">
-<title>Three days on the coast path — Long Weekend (Bezel demo)</title>
+<title>The matriarchs of the open sea — Pelagic (Bezel demo)</title>
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <style>
-/* A fictional article used for Bezel's before-and-after screenshots.
+/* A fictional magazine article used for Bezel's before-and-after screenshots.
    Every wide element is sized as a percentage of the page (never 100vw) and nothing is fixed or sticky,
    so when Bezel widens the page, all of it visibly extends under Safari's toolbar. */
 :root{
-  --bg:#FBF8F3; --fg:#1B1A17; --muted:#5B574E; --rule:#E4DED3; --accent:#C2562B; --band:#1F3B4D; --band-fg:#F4EFE6;
+  --bg:#FAFAF7; --fg:#121416; --muted:#565B60; --rule:#E2E3E0; --accent:#0B6E99; --band:#04243F; --band-fg:#EAF4F8;
   --serif:"New York",ui-serif,Georgia,serif; --sans:-apple-system,system-ui,sans-serif;
 }
 @media (prefers-color-scheme:dark){
-  :root{--bg:#15171A; --fg:#EFEAE1; --muted:#AAA397; --rule:#2C2F34; --accent:#F08A5D; --band:#203947; --band-fg:#F4EFE6}
+  :root{--bg:#0D1013; --fg:#ECEEEF; --muted:#A3A9AE; --rule:#25292D; --accent:#5CC3EC; --band:#06223A}
 }
 *{box-sizing:border-box}
 html{background:var(--bg);font-size:17px;-webkit-text-size-adjust:100%;text-size-adjust:100%}
@@ -24,21 +24,22 @@ body{margin:0;background:var(--bg);color:var(--fg);font:1.0588rem/1.6 var(--seri
 .pad{padding-left:max(16px,env(safe-area-inset-left));padding-right:16px}
 
 .top{display:flex;align-items:center;justify-content:space-between;padding-top:max(14px,env(safe-area-inset-top));padding-bottom:12px;border-bottom:1px solid var(--rule)}
-.mast{font:700 1.5rem/1 var(--serif);letter-spacing:-.01em}
+.mast{font:800 1.55rem/1 var(--serif);letter-spacing:.14em;text-transform:uppercase}
 .mast i{color:var(--accent);font-style:normal}
 .menu{display:flex;gap:16px;font:600 .7647rem/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.tabs{display:flex;gap:8px;overflow:hidden;padding-top:12px;padding-bottom:12px;font:600 .8235rem/1 var(--sans)}
-.tabs span{flex:none;padding:8px 14px;border-radius:999px;background:var(--rule);color:var(--fg)}
-.tabs span:first-child{background:var(--accent);color:#fff}
+.tabs{display:flex;gap:18px;overflow:hidden;padding-top:12px;padding-bottom:12px;font:700 .7647rem/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--rule)}
+.tabs span{flex:none;padding:4px 0}
+.tabs span:first-child{color:var(--fg);box-shadow:inset 0 -2px 0 var(--accent)}
 
-.hero{display:block;width:100%;height:auto;aspect-ratio:3/2;background:#F6C98B}
-.kicker{font:700 .7647rem/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin:22px 0 10px}
-h1{font:700 2.1rem/1.08 var(--serif);letter-spacing:-.015em;margin:0 0 12px}
+.hero{display:block;width:100%;height:auto;aspect-ratio:4/3;background:#063A63}
+.credit{font:500 .7059rem/1.4 var(--sans);color:var(--muted);text-align:right;margin:6px 0 0}
+.kicker{font:700 .7647rem/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:18px 0 10px}
+h1{font:800 2.25rem/1.04 var(--serif);letter-spacing:-.02em;margin:0 0 12px}
 .dek{font-size:1.1765rem;line-height:1.45;color:var(--muted);margin:0 0 14px}
 .byline{font:500 .8235rem/1.4 var(--sans);color:var(--muted);padding-bottom:16px;border-bottom:1px solid var(--rule);margin-bottom:18px}
 .byline b{color:var(--fg)}
 p{margin:0 0 16px}
-.drop::first-letter{float:left;font:700 3.4rem/.85 var(--serif);margin:6px 8px 0 0;color:var(--accent)}
+.drop::first-letter{float:left;font:800 3.5rem/.85 var(--serif);margin:6px 8px 0 0;color:var(--accent)}
 
 .quote{background:var(--band);color:var(--band-fg);padding-top:28px;padding-bottom:28px;margin:8px 0 24px}
 .quote p{font:italic 600 1.4rem/1.3 var(--serif);margin:0 0 10px}
@@ -47,12 +48,14 @@ p{margin:0 0 16px}
 .gallery{display:grid;grid-template-columns:2fr 1fr;gap:4px;margin:4px 0 8px}
 .gallery svg{display:block;width:100%;height:100%}
 .gallery .tall{grid-row:span 2}
-.caption{font:500 .7647rem/1.4 var(--sans);color:var(--muted);margin:0 0 20px}
+.caption{font:500 .7647rem/1.45 var(--sans);color:var(--muted);margin:0 0 20px}
+.caption b{color:var(--fg)}
 
-.map{display:block;width:100%;height:auto;margin:4px 0 20px}
+h2{font:800 1.35rem/1.15 var(--serif);margin:8px 0 4px}
+.scale{display:block;width:100%;height:auto;margin:8px 0 6px;background:#0A3557}
 .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin:0 0 24px}
 .facts div{background:var(--bg);padding:14px 16px}
-.facts b{display:block;font:700 1.3rem/1.1 var(--serif)}
+.facts b{display:block;font:800 1.3rem/1.1 var(--serif)}
 .facts span{font:600 .7059rem/1.2 var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
 
 footer{border-top:1px solid var(--rule);padding-top:16px;padding-bottom:max(48px,env(safe-area-inset-bottom));font:500 .8235rem/1.5 var(--sans);color:var(--muted)}
@@ -61,73 +64,141 @@ footer a{color:var(--accent)}
 </head>
 <body>
 <header class="top pad">
-  <div class="mast">Long Weekend<i>.</i></div>
+  <div class="mast">Pelagic<i>.</i></div>
   <nav class="menu" aria-label="Sections"><span>Search</span><span>Menu</span></nav>
 </header>
-<div class="tabs pad" aria-hidden="true"><span>Walks</span><span>Coast</span><span>Food</span><span>Rail</span><span>Islands</span><span>Weekends</span></div>
+<div class="tabs pad" aria-hidden="true"><span>Whales</span><span>Reefs</span><span>Deep sea</span><span>Polar</span><span>Science</span><span>Photo</span></div>
 
 <main>
-  <svg class="hero" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustration: a low sun over layered headlands and a calm sea">
+  <svg class="hero" viewBox="0 0 1200 900" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustration: an orca glides through sunlit open water, with a second orca and her calf in the blue distance">
     <defs>
-      <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F7B267"/><stop offset=".55" stop-color="#F9D8A6"/><stop offset="1" stop-color="#FCEBD0"/></linearGradient>
-      <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5B8FA8"/><stop offset="1" stop-color="#1F4E66"/></linearGradient>
+      <radialGradient id="water" cx=".42" cy="-.1" r="1.25">
+        <stop offset="0" stop-color="#7FD3F0"/><stop offset=".28" stop-color="#1E86B8"/><stop offset=".62" stop-color="#0A4A78"/><stop offset="1" stop-color="#021A31"/>
+      </radialGradient>
+      <linearGradient id="ray" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E9FBFF" stop-opacity=".5"/><stop offset="1" stop-color="#E9FBFF" stop-opacity="0"/></linearGradient>
+      <linearGradient id="hide" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2A3B4B"/><stop offset=".35" stop-color="#0E161E"/><stop offset="1" stop-color="#05090D"/></linearGradient>
+      <linearGradient id="belly" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#C9DCE6"/></linearGradient>
+      <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9FE3FF" stop-opacity=".45"/><stop offset=".25" stop-color="#9FE3FF" stop-opacity="0"/></linearGradient>
+      <filter id="soft" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="3"/></filter>
+      <filter id="far" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="2.2"/></filter>
+
+      <g id="orca">
+        <!-- flukes -->
+        <path d="M1050 432 C1085 410 1120 380 1150 362 C1170 352 1188 356 1190 368 C1180 392 1150 418 1118 438 C1150 452 1178 474 1186 494 C1180 506 1160 504 1140 494 C1110 478 1080 460 1050 446 Z" fill="url(#hide)"/>
+        <!-- dorsal fin -->
+        <path d="M545 342 C575 285 600 205 628 120 C636 110 646 114 648 126 C652 205 668 285 712 348 Z" fill="url(#hide)"/>
+        <!-- body -->
+        <path d="M212 438 C220 398 268 366 345 352 C450 334 585 330 700 338 C805 346 900 368 975 398 C1010 412 1040 424 1062 432 L1062 446 C1035 452 990 462 920 472 C800 488 650 494 510 486 C410 480 320 470 262 458 C232 452 212 448 212 438 Z" fill="url(#hide)"/>
+        <!-- white belly and flank patch -->
+        <path d="M222 446 C270 458 350 468 450 474 C560 480 640 474 700 466 C735 446 772 428 812 430 C832 446 818 470 776 482 C660 494 500 492 372 480 C300 474 248 462 222 446 Z" fill="url(#belly)"/>
+        <!-- eye patch -->
+        <path d="M318 400 C340 380 392 374 432 386 C446 391 440 400 424 404 C388 412 348 412 318 400 Z" fill="url(#belly)"/>
+        <!-- grey saddle patch -->
+        <path d="M692 346 C738 348 782 356 822 368 C800 382 750 384 712 374 C700 366 694 356 692 346 Z" fill="#6E7F8C" opacity=".75"/>
+        <!-- pectoral fin -->
+        <path d="M412 468 C398 515 404 560 432 588 C452 604 476 596 482 572 C488 540 482 500 470 474 Z" fill="url(#hide)"/>
+        <!-- eye, mouth, sunlight sheen -->
+        <circle cx="300" cy="414" r="5" fill="#0B1116"/>
+        <path d="M216 440 C250 446 290 448 330 444" fill="none" stroke="#1C2A36" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M212 438 C220 398 268 366 345 352 C450 334 585 330 700 338 C805 346 900 368 975 398 L975 410 C820 380 600 360 345 380 C270 388 230 410 212 438 Z" fill="url(#sheen)"/>
+      </g>
     </defs>
-    <rect width="1200" height="800" fill="url(#sky)"/>
-    <circle cx="820" cy="330" r="96" fill="#FFF3DC"/>
-    <path d="M0 470 L1200 470 L1200 800 L0 800Z" fill="url(#sea)"/>
-    <g fill="#FFF3DC" opacity=".55"><rect x="700" y="490" width="240" height="5" rx="2.5"/><rect x="740" y="515" width="170" height="4" rx="2"/><rect x="770" y="540" width="110" height="4" rx="2"/></g>
-    <path d="M0 430 C120 380 220 400 330 360 C420 330 500 380 560 470 L0 470Z" fill="#B8664A"/>
-    <path d="M0 520 C150 450 300 470 420 520 C520 560 600 620 640 800 L0 800Z" fill="#7A3E2E"/>
-    <path d="M1200 400 C1100 380 1020 420 960 470 L1200 470Z" fill="#9C5A44"/>
-    <path d="M1200 560 C1080 520 960 560 900 640 C860 700 850 760 850 800 L1200 800Z" fill="#4E2A22"/>
-    <path d="M60 560 C160 540 260 560 330 610 C380 650 420 720 430 800" fill="none" stroke="#F4D6A8" stroke-width="5" stroke-dasharray="14 12" stroke-linecap="round"/>
-    <g fill="none" stroke="#3B2A24" stroke-width="4" stroke-linecap="round"><path d="M520 210 q14 -12 28 0 q14 -12 28 0"/><path d="M600 250 q10 -9 20 0 q10 -9 20 0"/><path d="M470 270 q8 -7 16 0 q8 -7 16 0"/></g>
+
+    <rect width="1200" height="900" fill="url(#water)"/>
+    <!-- light rays from the surface -->
+    <g fill="url(#ray)">
+      <path d="M380 0 L460 0 L300 900 L180 900Z"/><path d="M560 0 L600 0 L640 900 L560 900Z" opacity=".7"/>
+      <path d="M700 0 L780 0 L980 900 L860 900Z" opacity=".8"/><path d="M220 0 L260 0 L60 900 L0 900Z" opacity=".5"/>
+      <path d="M900 0 L940 0 L1200 760 L1200 900Z" opacity=".45"/>
+    </g>
+    <!-- surface shimmer -->
+    <path d="M0 26 C80 14 160 38 240 24 C320 10 400 36 480 22 C560 8 640 34 720 22 C800 10 880 36 960 24 C1040 12 1120 34 1200 22 V0 H0Z" fill="#D8F6FF" opacity=".5"/>
+
+    <!-- distant mother and calf -->
+    <g opacity=".33" filter="url(#far)"><use href="#orca" transform="translate(760 590) scale(.34) scale(-1 1) translate(-1200 0)"/></g>
+    <g opacity=".3" filter="url(#far)"><use href="#orca" transform="translate(800 745) scale(.2) scale(-1 1) translate(-1200 0)"/></g>
+    <rect width="1200" height="900" fill="#0A4A78" opacity=".12"/>
+
+    <!-- the hero orca -->
+    <use href="#orca" transform="translate(-40 150)"/>
+
+    <!-- bubbles and drifting particles -->
+    <g fill="none" stroke="#E9FBFF" stroke-opacity=".7" stroke-width="2"><circle cx="120" cy="520" r="7"/><circle cx="106" cy="480" r="5"/><circle cx="126" cy="446" r="4"/><circle cx="112" cy="412" r="3"/><circle cx="130" cy="380" r="2.5"/></g>
+    <g fill="#E9FBFF" opacity=".45"><circle cx="90" cy="300" r="2"/><circle cx="330" cy="140" r="1.6"/><circle cx="510" cy="760" r="2.2"/><circle cx="1060" cy="250" r="1.8"/><circle cx="980" cy="820" r="2"/><circle cx="720" cy="120" r="1.5"/><circle cx="1140" cy="560" r="2.2"/><circle cx="40" cy="760" r="1.8"/><circle cx="620" cy="830" r="1.5"/></g>
+    <rect y="820" width="1200" height="80" fill="#021A31" opacity=".35" filter="url(#soft)"/>
   </svg>
+  <p class="credit pad">Illustration for Pelagic. Not to scale.</p>
 
   <article class="pad">
-    <div class="kicker">Walks · Coast</div>
-    <h1>Three days on the coast path</h1>
-    <p class="dek">Forty miles of headlands, harbour towns and one very good bakery, walked slowly with a light pack.</p>
-    <div class="byline">Words and pictures by <b>the Long Weekend desk</b> · 8 min read</div>
+    <div class="kicker">Marine life · Orcas</div>
+    <h1>The matriarchs of the open sea</h1>
+    <p class="dek">In orca families the oldest females lead. Long after their last calf, their memory of where the fish are may be what keeps everyone fed.</p>
+    <div class="byline">Words by <b>the Pelagic science desk</b> · Illustrations by <b>Pelagic studio</b> · 9 min read</div>
 
-    <p class="drop">The path leaves the harbour along a sea wall still dark from the morning tide. Within half an hour the town is behind you, and the only sounds are gulls, the wind in the gorse and your own boots on the chalk.</p>
-    <p>We planned the walk around three nights in small inns, each about thirteen miles apart. That is a comfortable day with time to stop: long enough to feel you have travelled, short enough to arrive before the kitchen closes.</p>
+    <p class="drop">The pod surfaces in a line, one breath after another, the tall fins of the males rising highest. But the animal setting the course is the smallest fin of all: an old female, swimming a little ahead, choosing the turn the others will follow.</p>
+    <p>Orcas live in tight family groups built around their mothers. Sons and daughters often stay with her for life, and when food is scarce, it is the older females who tend to lead the way to where it can be found.</p>
   </article>
 
   <aside class="quote pad">
-    <p>“By the second afternoon you stop checking the map and start reading the coast instead.”</p>
-    <span>Day two · The long headland</span>
+    <p>“She is the map. When the salmon runs fail, the family follows the one who remembers the last bad year.”</p>
+    <span>The science of orca grandmothers</span>
   </aside>
 
-  <div class="gallery" aria-label="Illustrations from the walk">
-    <svg class="tall" viewBox="0 0 400 520" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustration: white cliffs above a turquoise cove"><rect width="400" height="520" fill="#8FC9C3"/><path d="M0 0 H400 V180 C320 210 260 190 200 230 C140 270 60 250 0 290Z" fill="#EDE6D6"/><path d="M0 290 C60 250 140 270 200 230 C260 190 320 210 400 180 V250 C320 270 250 300 190 330 C120 360 50 340 0 380Z" fill="#D6CBB3"/><path d="M0 420 C120 400 260 440 400 410 V520 H0Z" fill="#5FA7A0"/><path d="M60 450 h90 M220 470 h70" stroke="#E8F6F3" stroke-width="5" stroke-linecap="round"/></svg>
-    <svg viewBox="0 0 300 200" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustration: a row of harbour cottages"><rect width="300" height="200" fill="#CFE0EA"/><g><rect x="10" y="70" width="60" height="90" fill="#E9B44C"/><rect x="70" y="60" width="60" height="100" fill="#F3EEE4"/><rect x="130" y="76" width="60" height="84" fill="#9BC1BC"/><rect x="190" y="64" width="60" height="96" fill="#E4572E"/><rect x="250" y="72" width="50" height="88" fill="#F3EEE4"/></g><g fill="#1F3B4D"><rect x="25" y="95" width="14" height="18"/><rect x="88" y="90" width="14" height="18"/><rect x="148" y="100" width="14" height="18"/><rect x="208" y="92" width="14" height="18"/><rect x="265" y="98" width="14" height="18"/></g><rect y="160" width="300" height="40" fill="#3E6E86"/></svg>
-    <svg viewBox="0 0 300 200" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustration: a loaf and a cup of coffee on a table"><rect width="300" height="200" fill="#E9D8C2"/><ellipse cx="120" cy="120" rx="80" ry="40" fill="#B5733F"/><path d="M70 110 q20 -18 40 0 M110 104 q20 -18 40 0 M150 110 q15 -14 30 0" fill="none" stroke="#E9C08F" stroke-width="5" stroke-linecap="round"/><rect x="210" y="96" width="44" height="50" rx="8" fill="#F7F3EC"/><rect x="214" y="100" width="36" height="12" rx="6" fill="#6B3E26"/></svg>
+  <div class="gallery" aria-label="Illustrations from the story">
+    <svg class="tall" viewBox="0 0 400 520" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustration: a kelp forest lit from above">
+      <defs><linearGradient id="kelpwater" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5FB7A8"/><stop offset="1" stop-color="#0D3B3A"/></linearGradient></defs>
+      <rect width="400" height="520" fill="url(#kelpwater)"/>
+      <g fill="none" stroke-linecap="round"><path d="M60 520 C40 400 90 300 60 180 C40 100 70 40 60 0" stroke="#2F6B2E" stroke-width="16"/><path d="M150 520 C170 420 120 330 150 220 C170 140 140 70 160 0" stroke="#3E7F31" stroke-width="14"/><path d="M250 520 C230 430 280 330 250 240 C230 160 270 90 250 0" stroke="#2F6B2E" stroke-width="18"/><path d="M340 520 C360 440 320 360 345 260 C360 190 330 110 350 30" stroke="#4A8A36" stroke-width="12"/></g>
+      <g fill="#6FA845" opacity=".85"><ellipse cx="80" cy="260" rx="26" ry="9" transform="rotate(-30 80 260)"/><ellipse cx="135" cy="320" rx="24" ry="8" transform="rotate(25 135 320)"/><ellipse cx="270" cy="180" rx="28" ry="9" transform="rotate(-25 270 180)"/><ellipse cx="230" cy="380" rx="24" ry="8" transform="rotate(30 230 380)"/><ellipse cx="360" cy="300" rx="22" ry="8" transform="rotate(-20 360 300)"/></g>
+      <g fill="#F2C14E"><path d="M190 300 l26 -10 l-6 10 l6 10z"/><path d="M300 410 l20 -8 l-5 8 l5 8z"/></g>
+    </svg>
+    <svg viewBox="0 0 300 200" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustration: a swarm of krill">
+      <rect width="300" height="200" fill="#0B3B5E"/>
+      <g fill="#F28C7A"><circle cx="40" cy="50" r="3"/><circle cx="62" cy="80" r="2.5"/><circle cx="90" cy="60" r="3"/><circle cx="120" cy="96" r="2.5"/><circle cx="150" cy="70" r="3"/><circle cx="170" cy="110" r="2.5"/><circle cx="200" cy="84" r="3"/><circle cx="230" cy="120" r="2.5"/><circle cx="256" cy="94" r="3"/><circle cx="80" cy="130" r="2.5"/><circle cx="140" cy="140" r="3"/><circle cx="210" cy="150" r="2.5"/><circle cx="110" cy="40" r="2"/><circle cx="190" cy="40" r="2.2"/><circle cx="270" cy="150" r="2"/><circle cx="30" cy="110" r="2"/></g>
+      <g fill="#F7B3A6" opacity=".6"><circle cx="52" cy="66" r="1.6"/><circle cx="104" cy="74" r="1.6"/><circle cx="160" cy="92" r="1.6"/><circle cx="222" cy="100" r="1.6"/><circle cx="130" cy="120" r="1.6"/><circle cx="244" cy="70" r="1.6"/></g>
+    </svg>
+    <svg viewBox="0 0 300 200" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustration: a moon jellyfish">
+      <rect width="300" height="200" fill="#123A5C"/>
+      <path d="M100 96 C100 50 200 50 200 96 C185 104 115 104 100 96Z" fill="#CFE6F2" opacity=".8"/>
+      <g fill="none" stroke="#CFE6F2" stroke-opacity=".6" stroke-width="2.5" stroke-linecap="round"><path d="M120 100 C116 130 128 150 120 190"/><path d="M140 102 C146 136 134 160 142 200"/><path d="M160 102 C156 140 168 160 160 200"/><path d="M180 100 C186 130 174 150 182 190"/></g>
+      <g fill="none" stroke="#9AC7DE" stroke-width="3"><circle cx="135" cy="80" r="7"/><circle cx="165" cy="80" r="7"/></g>
+    </svg>
   </div>
-  <p class="caption pad">Day one: the cove below the old coastguard cottages, the harbour at Wrenmouth, and the bakery that justified the detour.</p>
+  <p class="caption pad"><b>Where the food is.</b> Kelp forests shelter the fish many orcas hunt; krill feed the great baleen whales; moon jellyfish drift through both.</p>
 
   <article class="pad">
-    <p>The second day is the hardest and the best. The path climbs steeply out of the valley, then runs for miles along the top of the cliffs with nothing between you and the horizon. Carry more water than you think you need; there is no shop until the far end.</p>
-    <p>The final day is gentler, dropping through farmland into a wide estuary where the ferry runs every half hour. Time the last mile to catch it, and you will finish with your feet up, watching the far bank come slowly towards you.</p>
+    <p>Orcas and humans are among the very few animals known to go through menopause. One idea is that a grandmother does more for her family by guiding it than by raising more calves of her own, and studies of long-watched populations suggest the young are more likely to survive when she is alive.</p>
+    <p>Her knowledge is cultural: different populations have different calls, different prey and different ways of hunting, passed from one generation to the next. Lose the oldest animals and some of that knowledge may go with them.</p>
+
+    <h2>Giants compared</h2>
+    <p class="caption">Approximate maximum lengths, drawn to the same scale.</p>
   </article>
 
-  <svg class="map" viewBox="0 0 1200 360" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustrated route map: three stages along a coastline, from harbour to estuary">
-    <rect width="1200" height="360" fill="#BFD9E3"/>
-    <path d="M0 0 H1200 V150 C1100 190 1020 140 920 180 C820 220 760 170 660 200 C560 230 480 180 380 210 C280 240 200 190 100 220 C60 232 30 228 0 236Z" fill="#E7E1CF"/>
-    <path d="M90 214 C200 180 300 220 390 196 C500 168 580 214 680 186 C780 158 860 200 960 168 C1040 144 1100 170 1150 150" fill="none" stroke="#C2562B" stroke-width="6" stroke-dasharray="2 14" stroke-linecap="round"/>
-    <g fill="#C2562B"><circle cx="90" cy="214" r="12"/><circle cx="480" cy="190" r="12"/><circle cx="820" cy="186" r="12"/><circle cx="1150" cy="150" r="12"/></g>
-    <g font-family="-apple-system,system-ui,sans-serif" font-size="30" font-weight="600" fill="#1F3B4D"><text x="60" y="270">Harbour</text><text x="440" y="250">Day 1</text><text x="780" y="246">Day 2</text><text x="1020" y="110">Estuary</text></g>
+  <svg class="scale" viewBox="0 0 1200 380" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Size chart: a blue whale up to about 30 metres long, an orca up to about 9 metres, and a diver at under 2 metres, drawn to the same scale">
+    <rect width="1200" height="380" fill="#0A3557"/>
+    <g stroke="#7FB7D6" stroke-opacity=".35" stroke-width="1"><path d="M60 330 H1140"/><path d="M60 322 V338 M420 322 V338 M780 322 V338 M1140 322 V338"/></g>
+    <g font-family="-apple-system,system-ui,sans-serif" font-size="22" fill="#9CC8E0"><text x="60" y="365">0 m</text><text x="404" y="365">10</text><text x="764" y="365">20</text><text x="1112" y="365">30</text></g>
+    <!-- blue whale, ~30 m = 1080 units -->
+    <path d="M60 128 C80 104 160 92 300 92 C520 92 760 104 920 122 C980 128 1030 132 1070 136 L1110 112 C1124 104 1140 110 1134 122 L1100 146 L1136 168 C1142 180 1126 186 1112 178 L1070 156 C1030 160 980 166 920 172 C760 188 520 196 300 192 C160 190 82 174 60 156 C52 146 52 136 60 128Z" fill="#7895AE"/>
+    <path d="M840 108 L870 82 L880 112Z" fill="#7895AE"/>
+    <path d="M300 182 L330 228 L360 188Z" fill="#5F7E98"/>
+    <g fill="#5F7E98" opacity=".7"><circle cx="420" cy="120" r="5"/><circle cx="560" cy="140" r="6"/><circle cx="700" cy="118" r="4"/><circle cx="480" cy="160" r="4"/><circle cx="640" cy="164" r="5"/></g>
+    <!-- orca, ~9 m = 324 units -->
+    <g transform="translate(60 170) scale(.31) translate(-212 -120)"><use href="#orca"/></g>
+    <!-- diver, ~1.8 m = 65 units -->
+    <g fill="#F2C14E" transform="translate(700 262)"><circle cx="6" cy="6" r="6"/><rect x="10" y="2" width="40" height="9" rx="4.5"/><path d="M48 4 L66 0 L62 7 L66 14 L48 10Z"/></g>
+    <g font-family="-apple-system,system-ui,sans-serif" font-weight="700" font-size="24" fill="#EAF4F8"><text x="70" y="70">Blue whale · up to 30 m</text><text x="390" y="262">Orca · up to 9 m</text><text x="784" y="282" font-size="22" font-weight="600" fill="#F2C14E">Diver · 1.8 m</text></g>
   </svg>
 
   <div class="facts">
-    <div><b>40 mi</b><span>Distance</span></div>
-    <div><b>3 days</b><span>Pace</span></div>
-    <div><b>1 ferry</b><span>Finish</span></div>
+    <div><b>80+ yrs</b><span>Oldest females</span></div>
+    <div><b>56 km/h</b><span>Top speed</span></div>
+    <div><b>Every ocean</b><span>Range</span></div>
   </div>
 </main>
 
 <footer class="pad">
-  This is a demo page for <a href="../">Bezel</a>. The magazine, places and story are made up.
+  This is a demo page for <a href="../">Bezel</a>. Pelagic is not a real magazine and the story is written for this demo; figures are approximate.
 </footer>
 </body>
 </html>
