@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex">
+<title>Three days on the coast path — Long Weekend (Bezel demo)</title>
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<style>
+/* A fictional article used for Bezel's before-and-after screenshots.
+   Every wide element is sized as a percentage of the page (never 100vw) and nothing is fixed or sticky,
+   so when Bezel widens the page, all of it visibly extends under Safari's toolbar. */
+:root{
+  --bg:#FBF8F3; --fg:#1B1A17; --muted:#5B574E; --rule:#E4DED3; --accent:#C2562B; --band:#1F3B4D; --band-fg:#F4EFE6;
+  --serif:"New York",ui-serif,Georgia,serif; --sans:-apple-system,system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#15171A; --fg:#EFEAE1; --muted:#AAA397; --rule:#2C2F34; --accent:#F08A5D; --band:#203947; --band-fg:#F4EFE6}
+}
+*{box-sizing:border-box}
+html{background:var(--bg);font-size:17px;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:1.0588rem/1.6 var(--serif)}
+.pad{padding-left:max(16px,env(safe-area-inset-left));padding-right:16px}
+
+.top{display:flex;align-items:center;justify-content:space-between;padding-top:max(14px,env(safe-area-inset-top));padding-bottom:12px;border-bottom:1px solid var(--rule)}
+.mast{font:700 1.5rem/1 var(--serif);letter-spacing:-.01em}
+.mast i{color:var(--accent);font-style:normal}
+.menu{display:flex;gap:16px;font:600 .7647rem/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.tabs{display:flex;gap:8px;overflow:hidden;padding-top:12px;padding-bottom:12px;font:600 .8235rem/1 var(--sans)}
+.tabs span{flex:none;padding:8px 14px;border-radius:999px;background:var(--rule);color:var(--fg)}
+.tabs span:first-child{background:var(--accent);color:#fff}
+
+.hero{display:block;width:100%;height:auto;aspect-ratio:3/2;background:#F6C98B}
+.kicker{font:700 .7647rem/1 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin:22px 0 10px}
+h1{font:700 2.1rem/1.08 var(--serif);letter-spacing:-.015em;margin:0 0 12px}
+.dek{font-size:1.1765rem;line-height:1.45;color:var(--muted);margin:0 0 14px}
+.byline{font:500 .8235rem/1.4 var(--sans);color:var(--muted);padding-bottom:16px;border-bottom:1px solid var(--rule);margin-bottom:18px}
+.byline b{color:var(--fg)}
+p{margin:0 0 16px}
+.drop::first-letter{float:left;font:700 3.4rem/.85 var(--serif);margin:6px 8px 0 0;color:var(--accent)}
+
+.quote{background:var(--band);color:var(--band-fg);padding-top:28px;padding-bottom:28px;margin:8px 0 24px}
+.quote p{font:italic 600 1.4rem/1.3 var(--serif);margin:0 0 10px}
+.quote span{font:600 .7647rem/1 var(--sans);letter-spacing:.08em;text-transform:uppercase;opacity:.8}
+
+.gallery{display:grid;grid-template-columns:2fr 1fr;gap:4px;margin:4px 0 8px}
+.gallery svg{display:block;width:100%;height:100%}
+.gallery .tall{grid-row:span 2}
+.caption{font:500 .7647rem/1.4 var(--sans);color:var(--muted);margin:0 0 20px}
+
+.map{display:block;width:100%;height:auto;margin:4px 0 20px}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin:0 0 24px}
+.facts div{background:var(--bg);padding:14px 16px}
+.facts b{display:block;font:700 1.3rem/1.1 var(--serif)}
+.facts span{font:600 .7059rem/1.2 var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+
+footer{border-top:1px solid var(--rule);padding-top:16px;padding-bottom:max(48px,env(safe-area-inset-bottom));font:500 .8235rem/1.5 var(--sans);color:var(--muted)}
+footer a{color:var(--accent)}
+</style>
+</head>
+<body>
+<header class="top pad">
+  <div class="mast">Long Weekend<i>.</i></div>
+  <nav class="menu" aria-label="Sections"><span>Search</span><span>Menu</span></nav>
+</header>
+<div class="tabs pad" aria-hidden="true"><span>Walks</span><span>Coast</span><span>Food</span><span>Rail</span><span>Islands</span><span>Weekends</span></div>
+
+<main>
+  <svg class="hero" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustration: a low sun over layered headlands and a calm sea">
+    <defs>
+      <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F7B267"/><stop offset=".55" stop-color="#F9D8A6"/><stop offset="1" stop-color="#FCEBD0"/></linearGradient>
+      <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5B8FA8"/><stop offset="1" stop-color="#1F4E66"/></linearGradient>
+    </defs>
+    <rect width="1200" height="800" fill="url(#sky)"/>
+    <circle cx="820" cy="330" r="96" fill="#FFF3DC"/>
+    <path d="M0 470 L1200 470 L1200 800 L0 800Z" fill="url(#sea)"/>
+    <g fill="#FFF3DC" opacity=".55"><rect x="700" y="490" width="240" height="5" rx="2.5"/><rect x="740" y="515" width="170" height="4" rx="2"/><rect x="770" y="540" width="110" height="4" rx="2"/></g>
+    <path d="M0 430 C120 380 220 400 330 360 C420 330 500 380 560 470 L0 470Z" fill="#B8664A"/>
+    <path d="M0 520 C150 450 300 470 420 520 C520 560 600 620 640 800 L0 800Z" fill="#7A3E2E"/>
+    <path d="M1200 400 C1100 380 1020 420 960 470 L1200 470Z" fill="#9C5A44"/>
+    <path d="M1200 560 C1080 520 960 560 900 640 C860 700 850 760 850 800 L1200 800Z" fill="#4E2A22"/>
+    <path d="M60 560 C160 540 260 560 330 610 C380 650 420 720 430 800" fill="none" stroke="#F4D6A8" stroke-width="5" stroke-dasharray="14 12" stroke-linecap="round"/>
+    <g fill="none" stroke="#3B2A24" stroke-width="4" stroke-linecap="round"><path d="M520 210 q14 -12 28 0 q14 -12 28 0"/><path d="M600 250 q10 -9 20 0 q10 -9 20 0"/><path d="M470 270 q8 -7 16 0 q8 -7 16 0"/></g>
+  </svg>
+
+  <article class="pad">
+    <div class="kicker">Walks · Coast</div>
+    <h1>Three days on the coast path</h1>
+    <p class="dek">Forty miles of headlands, harbour towns and one very good bakery, walked slowly with a light pack.</p>
+    <div class="byline">Words and pictures by <b>the Long Weekend desk</b> · 8 min read</div>
+
+    <p class="drop">The path leaves the harbour along a sea wall still dark from the morning tide. Within half an hour the town is behind you, and the only sounds are gulls, the wind in the gorse and your own boots on the chalk.</p>
+    <p>We planned the walk around three nights in small inns, each about thirteen miles apart. That is a comfortable day with time to stop: long enough to feel you have travelled, short enough to arrive before the kitchen closes.</p>
+  </article>
+
+  <aside class="quote pad">
+    <p>“By the second afternoon you stop checking the map and start reading the coast instead.”</p>
+    <span>Day two · The long headland</span>
+  </aside>
+
+  <div class="gallery" aria-label="Illustrations from the walk">
+    <svg class="tall" viewBox="0 0 400 520" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustration: white cliffs above a turquoise cove"><rect width="400" height="520" fill="#8FC9C3"/><path d="M0 0 H400 V180 C320 210 260 190 200 230 C140 270 60 250 0 290Z" fill="#EDE6D6"/><path d="M0 290 C60 250 140 270 200 230 C260 190 320 210 400 180 V250 C320 270 250 300 190 330 C120 360 50 340 0 380Z" fill="#D6CBB3"/><path d="M0 420 C120 400 260 440 400 410 V520 H0Z" fill="#5FA7A0"/><path d="M60 450 h90 M220 470 h70" stroke="#E8F6F3" stroke-width="5" stroke-linecap="round"/></svg>
+    <svg viewBox="0 0 300 200" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustration: a row of harbour cottages"><rect width="300" height="200" fill="#CFE0EA"/><g><rect x="10" y="70" width="60" height="90" fill="#E9B44C"/><rect x="70" y="60" width="60" height="100" fill="#F3EEE4"/><rect x="130" y="76" width="60" height="84" fill="#9BC1BC"/><rect x="190" y="64" width="60" height="96" fill="#E4572E"/><rect x="250" y="72" width="50" height="88" fill="#F3EEE4"/></g><g fill="#1F3B4D"><rect x="25" y="95" width="14" height="18"/><rect x="88" y="90" width="14" height="18"/><rect x="148" y="100" width="14" height="18"/><rect x="208" y="92" width="14" height="18"/><rect x="265" y="98" width="14" height="18"/></g><rect y="160" width="300" height="40" fill="#3E6E86"/></svg>
+    <svg viewBox="0 0 300 200" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustration: a loaf and a cup of coffee on a table"><rect width="300" height="200" fill="#E9D8C2"/><ellipse cx="120" cy="120" rx="80" ry="40" fill="#B5733F"/><path d="M70 110 q20 -18 40 0 M110 104 q20 -18 40 0 M150 110 q15 -14 30 0" fill="none" stroke="#E9C08F" stroke-width="5" stroke-linecap="round"/><rect x="210" y="96" width="44" height="50" rx="8" fill="#F7F3EC"/><rect x="214" y="100" width="36" height="12" rx="6" fill="#6B3E26"/></svg>
+  </div>
+  <p class="caption pad">Day one: the cove below the old coastguard cottages, the harbour at Wrenmouth, and the bakery that justified the detour.</p>
+
+  <article class="pad">
+    <p>The second day is the hardest and the best. The path climbs steeply out of the valley, then runs for miles along the top of the cliffs with nothing between you and the horizon. Carry more water than you think you need; there is no shop until the far end.</p>
+    <p>The final day is gentler, dropping through farmland into a wide estuary where the ferry runs every half hour. Time the last mile to catch it, and you will finish with your feet up, watching the far bank come slowly towards you.</p>
+  </article>
+
+  <svg class="map" viewBox="0 0 1200 360" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Illustrated route map: three stages along a coastline, from harbour to estuary">
+    <rect width="1200" height="360" fill="#BFD9E3"/>
+    <path d="M0 0 H1200 V150 C1100 190 1020 140 920 180 C820 220 760 170 660 200 C560 230 480 180 380 210 C280 240 200 190 100 220 C60 232 30 228 0 236Z" fill="#E7E1CF"/>
+    <path d="M90 214 C200 180 300 220 390 196 C500 168 580 214 680 186 C780 158 860 200 960 168 C1040 144 1100 170 1150 150" fill="none" stroke="#C2562B" stroke-width="6" stroke-dasharray="2 14" stroke-linecap="round"/>
+    <g fill="#C2562B"><circle cx="90" cy="214" r="12"/><circle cx="480" cy="190" r="12"/><circle cx="820" cy="186" r="12"/><circle cx="1150" cy="150" r="12"/></g>
+    <g font-family="-apple-system,system-ui,sans-serif" font-size="30" font-weight="600" fill="#1F3B4D"><text x="60" y="270">Harbour</text><text x="440" y="250">Day 1</text><text x="780" y="246">Day 2</text><text x="1020" y="110">Estuary</text></g>
+  </svg>
+
+  <div class="facts">
+    <div><b>40 mi</b><span>Distance</span></div>
+    <div><b>3 days</b><span>Pace</span></div>
+    <div><b>1 ferry</b><span>Finish</span></div>
+  </div>
+</main>
+
+<footer class="pad">
+  This is a demo page for <a href="../">Bezel</a>. The magazine, places and story are made up.
+</footer>
+</body>
+</html>
