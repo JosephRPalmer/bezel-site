@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Bezel — use the whole front screen</title>
+<meta name="description" content="Bezel is a Safari extension for the iPhone Duo front screen. It widens web pages into the empty strip beside Safari's toolbar. Nothing leaves your iPhone.">
+<link rel="canonical" href="https://bezel.qcqm.com/">
+<meta property="og:title" content="Bezel — use the whole front screen">
+<meta property="og:description" content="A Safari extension that widens web pages on the iPhone Duo front screen.">
+<meta property="og:url" content="https://bezel.qcqm.com/">
+<meta property="og:type" content="website">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<style>
+/* Same tokens as the test page. Text on light: ink 17.5:1, muted 7.3:1, teal 5.5:1. Dark: 8:1 or better. */
+:root{
+  --bg:#F5F6F8; --fg:#0E1116; --muted:#4A5260; --card:#FFFFFF; --line:#D9DCE2;
+  --teal:#0A7165; --fill:#2DD4BF; --strip:#E4E7EC; --page:#FFFFFF; --bar:#C9CED6;
+  --rounded:ui-rounded,"SF Pro Rounded",-apple-system,system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#0E1116; --fg:#F5F6F8; --muted:#A9B0BC; --card:#171B22; --line:#2A303A;
+    --teal:#2DD4BF; --strip:#0B0D11; --page:#1F242D; --bar:#3A414D;
+  }
+}
+*{box-sizing:border-box}
+[hidden]{display:none !important}
+html{background:var(--bg);font-size:17px;-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-padding-top:16px}
+body{margin:0;background:var(--bg);color:var(--fg);font:1rem/1.55 -apple-system,system-ui,sans-serif}
+.wrap{max-width:960px;margin:0 auto;padding:0 max(16px,env(safe-area-inset-right)) 0 max(16px,env(safe-area-inset-left))}
+a{color:var(--teal)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--teal);outline-offset:3px;border-radius:8px}
+.skip{position:absolute;left:-9999px}.skip:focus{left:16px;top:16px;background:var(--card);padding:8px 12px}
+
+header{display:flex;align-items:center;justify-content:space-between;padding-top:max(16px,env(safe-area-inset-top))}
+.brand{display:flex;align-items:center;gap:10px;color:var(--fg);text-decoration:none}
+.brand svg{width:36px;height:36px;flex:none}
+.brand span{font:600 1.5rem/1 var(--rounded);letter-spacing:-.01em}
+nav a{color:var(--muted);text-decoration:none;font-size:.9412rem;padding:10px 4px}
+nav a:hover{color:var(--fg)}
+
+h1{font:700 clamp(2.1rem,7vw,3.4rem)/1.08 var(--rounded);letter-spacing:-.02em;margin:0 0 14px}
+h2{font:650 clamp(1.5rem,4.5vw,2rem)/1.15 var(--rounded);letter-spacing:-.01em;margin:0 0 12px}
+h3{font:600 1.1765rem/1.3 var(--rounded);margin:0 0 4px}
+p{margin:0 0 12px;color:var(--muted)}
+.lede{font-size:1.1765rem;max-width:34em}
+section{padding:56px 0 8px}
+
+.hero{display:grid;gap:32px;align-items:center;padding-top:40px}
+@media (min-width:760px){.hero{grid-template-columns:1.1fr .9fr;padding-top:64px}}
+
+.store{display:inline-block;margin:8px 0 6px;line-height:0}
+.store img{height:53px;width:auto}
+.soon{display:inline-block;font:600 1.0588rem/1.3 var(--rounded);color:var(--fg);background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin:8px 0 6px}
+.note{font-size:.8824rem}
+
+/* Before / after: one phone front screen, drawn twice. */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:0}
+.compare figure{margin:0;text-align:center}
+.compare figcaption{font:600 .9412rem/1.3 var(--rounded);color:var(--muted);margin-top:8px}
+.compare figcaption b{color:var(--fg)}
+.compare svg{width:100%;max-width:220px;height:auto;display:block;margin:0 auto}
+
+.reasons{display:grid;gap:16px;list-style:none;margin:20px 0 0;padding:0}
+@media (min-width:760px){.reasons{grid-template-columns:repeat(3,1fr)}}
+.reasons li{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+.reasons svg{width:28px;height:28px;color:var(--teal);margin-bottom:10px}
+.reasons p{margin:0}
+
+.modes{display:grid;gap:10px;margin:16px 0 0;padding:0;list-style:none}
+@media (min-width:760px){.modes{grid-template-columns:repeat(3,1fr)}}
+.modes li{border-left:3px solid var(--fill);padding:2px 0 2px 14px}
+.modes b{font-family:var(--rounded);color:var(--fg)}
+
+.steps{counter-reset:s;list-style:none;margin:20px 0 0;padding:0;display:grid;gap:12px;max-width:40em}
+.steps li{counter-increment:s;display:grid;grid-template-columns:36px 1fr;gap:12px;align-items:start;color:var(--muted)}
+.steps li::before{content:counter(s);font:700 1rem/36px var(--rounded);text-align:center;border-radius:50%;background:var(--fill);color:#0E1116;width:36px;height:36px}
+.steps b{color:var(--fg)}
+
+.get{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px 20px;margin-top:56px;text-align:center}
+.get p{margin-left:auto;margin-right:auto;max-width:30em}
+
+/* Privacy view */
+.policy{max-width:40em;padding-top:40px}
+.policy h1{font-size:clamp(1.9rem,6vw,2.6rem)}
+.policy h2{font-size:1.3rem;margin-top:28px}
+.policy ul{color:var(--muted);padding-left:20px;margin:0 0 12px}
+.policy li{margin-bottom:6px}
+.policy .date{font-size:.8824rem}
+.back{display:inline-block;margin-top:24px}
+
+/* SPA views: with JS, show one at a time; without JS, both render in order. */
+html.js [data-view]{display:none}
+html.js[data-route="home"] [data-view="home"],
+html.js[data-route="privacy"] [data-view="privacy"]{display:block}
+
+footer{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;justify-content:space-between;margin-top:64px;padding-top:20px;
+  padding-bottom:max(40px,env(safe-area-inset-bottom));border-top:1px solid var(--line);color:var(--muted);font-size:.9412rem}
+footer .by{display:flex;align-items:center;gap:12px}
+footer .qcqm{width:40px;height:40px;flex:none;margin:10px 0}
+footer a{color:var(--muted)}
+.tile-dark{display:none}
+@media (prefers-color-scheme:dark){.tile-light{display:none}.tile-dark{display:block}}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+<script>document.documentElement.className='js';</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="wrap">
+<header>
+  <a class="brand" href="#" aria-label="Bezel home">
+    <svg viewBox="0 0 100 100" aria-hidden="true" focusable="false"><path d="M60 20H30A15 15 0 0 0 15 35V65A15 15 0 0 0 30 80H60" fill="none" stroke="currentColor" stroke-opacity=".92" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><rect x="33" y="44.25" width="60" height="11.5" rx="5.75" fill="#2DD4BF"/></svg>
+    <span>Bezel</span>
+  </a>
+  <nav aria-label="Site"><a href="#privacy">Privacy</a></nav>
+</header>
+
+<main id="main">
+<div data-view="home">
+  <section class="hero" aria-labelledby="hero-title">
+    <div>
+      <h1 id="hero-title">Use the whole front screen.</h1>
+      <p class="lede">On the iPhone Duo front screen, Safari's toolbar leaves an empty strip beside every web page. Bezel is a Safari extension that widens pages into it, so you see more of the page and less blank space.</p>
+      <a class="store" data-store href="https://apps.apple.com/app/id6833179146" hidden><img src="badge-app-store.svg" width="160" height="53" alt="Download on the App Store"></a>
+      <p class="soon" data-soon>Coming soon to the App Store.</p>
+      <p class="note">For iPhone Duo with iOS 27. No tracking, accounts or ads.</p>
+    </div>
+
+    <div class="compare" role="group" aria-label="Before and after Bezel">
+      <figure>
+        <svg viewBox="0 0 200 330" role="img" aria-labelledby="before-t">
+          <title id="before-t">Without Bezel: the web page stops short, leaving an empty strip beside Safari's toolbar.</title>
+          <rect x="4" y="4" width="192" height="322" rx="26" fill="none" stroke="var(--fg)" stroke-width="3"/>
+          <rect x="12" y="12" width="176" height="306" rx="19" fill="var(--strip)"/>
+          <rect x="12" y="12" width="128" height="306" rx="19" fill="var(--page)"/>
+          <rect x="128" y="12" width="12" height="306" fill="var(--page)"/>
+          <g fill="var(--bar)"><rect x="26" y="34" width="70" height="12" rx="6"/><rect x="26" y="62" width="100" height="58" rx="8"/><rect x="26" y="134" width="96" height="7" rx="3.5"/><rect x="26" y="149" width="88" height="7" rx="3.5"/><rect x="26" y="164" width="98" height="7" rx="3.5"/><rect x="26" y="186" width="100" height="58" rx="8"/><rect x="26" y="258" width="92" height="7" rx="3.5"/><rect x="26" y="273" width="80" height="7" rx="3.5"/></g>
+          <g fill="var(--card)" stroke="var(--fg)" stroke-opacity=".55" stroke-width="1.5"><circle cx="170" cy="104" r="9"/><circle cx="170" cy="130" r="9"/><circle cx="170" cy="250" r="9"/><circle cx="170" cy="276" r="9"/></g>
+        </svg>
+        <figcaption>Without Bezel</figcaption>
+      </figure>
+      <figure>
+        <svg viewBox="0 0 200 330" role="img" aria-labelledby="after-t">
+          <title id="after-t">With Bezel: the web page fills the screen right up to the edge, under Safari's toolbar.</title>
+          <rect x="4" y="4" width="192" height="322" rx="26" fill="none" stroke="var(--fg)" stroke-width="3"/>
+          <rect x="12" y="12" width="176" height="306" rx="19" fill="var(--page)"/>
+          <g fill="var(--bar)"><rect x="26" y="34" width="70" height="12" rx="6"/><rect x="26" y="62" width="148" height="58" rx="8"/><rect x="26" y="134" width="140" height="7" rx="3.5"/><rect x="26" y="149" width="128" height="7" rx="3.5"/><rect x="26" y="164" width="144" height="7" rx="3.5"/><rect x="26" y="186" width="148" height="58" rx="8"/><rect x="26" y="258" width="136" height="7" rx="3.5"/><rect x="26" y="273" width="116" height="7" rx="3.5"/></g>
+          <rect x="146" y="14" width="40" height="302" fill="#2DD4BF" fill-opacity=".16"/>
+          <g fill="var(--card)" stroke="var(--fg)" stroke-opacity=".55" stroke-width="1.5"><circle cx="170" cy="104" r="9"/><circle cx="170" cy="130" r="9"/><circle cx="170" cy="250" r="9"/><circle cx="170" cy="276" r="9"/></g>
+        </svg>
+        <figcaption><b>With Bezel</b></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section aria-labelledby="why-title">
+    <h2 id="why-title">Why Bezel</h2>
+    <ul class="reasons">
+      <li>
+        <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="22" height="18" rx="4"/><path d="M17 14h6M20 11l3 3-3 3"/></svg>
+        <h3>More page, every page</h3>
+        <p>Text, photos and maps run to the edge of the screen instead of stopping at an empty margin.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3l9 4v6c0 6-4 10-9 12-5-2-9-6-9-12V7z"/><path d="M10 14l3 3 5-6"/></svg>
+        <h3>Careful by default</h3>
+        <p>In Auto, Bezel checks each page after it loads. If widening would hide anything or make the page scroll sideways, it leaves that page alone.</p>
+      </li>
+      <li>
+        <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="12" width="16" height="12" rx="3"/><path d="M10 12V9a4 4 0 0 1 8 0v3"/></svg>
+        <h3>Private</h3>
+        <p>No accounts, no analytics, no servers. Your choices stay on your iPhone. <a href="#privacy">Read the privacy policy</a>.</p>
+      </li>
+    </ul>
+
+    <h3 style="margin-top:32px">Choose per site</h3>
+    <p>Long-press the small Bezel button on any page to pick a mode for that site.</p>
+    <ul class="modes">
+      <li><b>Auto</b><br>Widens when it's safe. The default.</li>
+      <li><b>Wide</b><br>Always widens this site.</li>
+      <li><b>Normal</b><br>Never widens this site.</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="setup-title">
+    <h2 id="setup-title">Set up in a minute</h2>
+    <ol class="steps">
+      <li><span><b>Get Bezel from the App Store</b> and open it once.</span></li>
+      <li><span><b>Turn on the extension.</b> Bezel takes you to its Safari settings. Tap All Websites and choose Allow.</span></li>
+      <li><span><b>Open the test page.</b> It confirms Bezel is working. After that, just browse.</span></li>
+    </ol>
+  </section>
+
+  <section class="get" id="get" aria-labelledby="get-title">
+    <h2 id="get-title">Get Bezel</h2>
+    <p>For iPhone Duo with iOS 27.</p>
+    <a class="store" data-store href="https://apps.apple.com/app/id6833179146" hidden><img src="badge-app-store.svg" width="160" height="53" alt="Download on the App Store"></a>
+      <p class="soon" data-soon>Coming soon to the App Store.</p>
+  </section>
+</div>
+
+<article class="policy" data-view="privacy" id="privacy" aria-labelledby="privacy-title" tabindex="-1">
+  <h1 id="privacy-title">Privacy policy</h1>
+  <p class="date">Last updated 10 November 2026</p>
+  <p><strong>In short: Bezel collects nothing. It has no accounts, no analytics and no servers. What it remembers stays on your iPhone.</strong></p>
+
+  <h2>Who we are</h2>
+  <p>Bezel is made by QCQM. This policy covers the Bezel app for iPhone, its Safari extension, and this website.</p>
+
+  <h2>What Bezel keeps on your iPhone</h2>
+  <ul>
+    <li><strong>Site names.</strong> The name of each site you visit, such as <em>example.com</em>, never the full address, page title or content.</li>
+    <li><strong>Your choices.</strong> The mode you picked for each site (Auto, Wide or Normal), your default mode, and whether you hid the Bezel button on a site.</li>
+    <li><strong>Auto's notes.</strong> When Auto leaves a site alone, a short reason and time, so it can try again later.</li>
+  </ul>
+  <p>This is stored in Safari's extension storage and in the app's own storage on your iPhone, so the app and the extension can share your choices. Sites you have only visited, without choosing a mode, are kept for the 200 most recent and removed after 90 days unseen. You can reset a site in the app, or delete everything with <em>Reset all</em> in Settings. Deleting the app removes it all.</p>
+
+  <h2>What Bezel reads on web pages</h2>
+  <p>To widen a page, the Safari extension needs permission to run on websites. It uses that permission only to adjust the page's width and to measure the page's layout, the sizes and positions of things on screen, so Auto can tell whether widening is safe. Apart from the site names above, it keeps nothing from the pages you visit: no full addresses, page text, passwords or anything you type.</p>
+
+  <h2>What Bezel sends</h2>
+  <p>Nothing. Bezel makes no network requests of its own. It has no analytics, crash reporting, advertising or tracking, and shares nothing with QCQM or anyone else. The app links to our test page, which opens in Safari like any other website.</p>
+
+  <h2>This website</h2>
+  <p>This site and the test page use no cookies, analytics or trackers. They are hosted on GitHub Pages, which may keep standard server logs, such as IP addresses, for security. See <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub's privacy statement</a>.</p>
+
+  <h2>Children</h2>
+  <p>Bezel collects no personal information from anyone, including children.</p>
+
+  <h2>Changes</h2>
+  <p>If this policy changes, we will update this page and the date above.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about privacy: <a href="mailto:contact@qcqm.com">contact@qcqm.com</a>.</p>
+
+  <a class="back" href="#">← Back to Bezel</a>
+</article>
+</main>
+
+<footer>
+  <span class="by">Bezel by
+  <svg class="qcqm tile-light" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="QCQM"><rect width="512" height="512" rx="115" fill="#0F1012"/><g fill="none" stroke="#F4F4F0" stroke-width="26" stroke-linecap="butt" stroke-linejoin="round"><rect x="130" y="116" width="84" height="104" rx="36"/><path d="M180 190 L222 240"/></g><path d="M382 152 A36 36 0 0 0 346 116 H334 A36 36 0 0 0 298 152 V184 A36 36 0 0 0 334 220 H346 A36 36 0 0 0 382 184" fill="none" stroke="#9A9EA6" stroke-width="18" stroke-linecap="butt" stroke-linejoin="round"/><path d="M130 405 V292 L172 354 L214 292 V405" fill="none" stroke="#9A9EA6" stroke-width="18" stroke-linecap="butt" stroke-linejoin="round"/><path d="M310 304 L374 344 L310 384" fill="none" stroke="#2EDACB" stroke-width="20" stroke-linecap="butt" stroke-linejoin="round"/></svg>
+  <svg class="qcqm tile-dark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="QCQM"><rect width="512" height="512" rx="115" fill="#F4F4F0"/><g fill="none" stroke="#0F1012" stroke-width="26" stroke-linecap="butt" stroke-linejoin="round"><rect x="130" y="116" width="84" height="104" rx="36"/><path d="M180 190 L222 240"/></g><path d="M382 152 A36 36 0 0 0 346 116 H334 A36 36 0 0 0 298 152 V184 A36 36 0 0 0 334 220 H346 A36 36 0 0 0 382 184" fill="none" stroke="#5E636B" stroke-width="18" stroke-linecap="butt" stroke-linejoin="round"/><path d="M130 405 V292 L172 354 L214 292 V405" fill="none" stroke="#5E636B" stroke-width="18" stroke-linecap="butt" stroke-linejoin="round"/><path d="M310 304 L374 344 L310 384" fill="none" stroke="#0E9C90" stroke-width="20" stroke-linecap="butt" stroke-linejoin="round"/></svg>
+  </span>
+  <span><a href="#privacy">Privacy</a> · <a href="https://test.bezel.qcqm.com/">Test page</a> · © 2026 QCQM</span>
+</footer>
+</div>
+
+<script>
+(function(){
+  // Flip to true once Bezel is on sale. Apple's badge may only be shown for an app that is available.
+  var APP_STORE_LIVE = false;
+  if (APP_STORE_LIVE) {
+    document.querySelectorAll('[data-store]').forEach(function(a){ a.hidden = false; });
+    document.querySelectorAll('[data-soon]').forEach(function(p){ p.hidden = true; });
+  }
+
+  // Routes: '#privacy' shows the policy; anything else shows home (in-page anchors still scroll).
+  var root = document.documentElement, titles = {home: document.title, privacy: 'Privacy policy — Bezel'};
+  function route(){
+    var r = location.hash === '#privacy' ? 'privacy' : 'home', was = root.getAttribute('data-route');
+    root.setAttribute('data-route', r);
+    document.title = titles[r];
+    if (r === 'privacy') { window.scrollTo(0,0); document.getElementById('privacy').focus({preventScroll:true}); }
+    else if (was === 'privacy') {
+      var t = location.hash && document.getElementById(location.hash.slice(1));
+      if (t) t.scrollIntoView(); else window.scrollTo(0,0);
+    }
+  }
+  window.addEventListener('hashchange', route);
+  route();
+})();
+</script>
+</body>
+</html>
