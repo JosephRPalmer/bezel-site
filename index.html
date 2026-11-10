@@ -38,6 +38,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding-top
 .brand{display:flex;align-items:center;gap:10px;color:var(--fg);text-decoration:none}
 .brand svg{width:36px;height:36px;flex:none}
 .brand span{font:600 1.5rem/1 var(--rounded);letter-spacing:-.01em}
+nav{display:flex;gap:14px}
 nav a{color:var(--muted);text-decoration:none;font-size:.9412rem;padding:10px 4px}
 nav a:hover{color:var(--fg)}
 
@@ -121,7 +122,7 @@ footer a{color:var(--muted)}
     <svg viewBox="0 0 100 100" aria-hidden="true" focusable="false"><path d="M60 20H30A15 15 0 0 0 15 35V65A15 15 0 0 0 30 80H60" fill="none" stroke="currentColor" stroke-opacity=".92" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/><rect x="33" y="44.25" width="60" height="11.5" rx="5.75" fill="#2DD4BF"/></svg>
     <span>Bezel</span>
   </a>
-  <nav aria-label="Site"><a href="#privacy">Privacy</a></nav>
+  <nav aria-label="Site"><a href="#support">Support</a> <a href="#privacy">Privacy</a></nav>
 </header>
 
 <main id="main">
@@ -191,6 +192,18 @@ footer a{color:var(--muted)}
     <a class="store" data-store href="https://apps.apple.com/app/id6833179146" hidden><img src="badge-app-store.svg" width="160" height="53" alt="Download on the App Store"></a>
       <p class="soon" data-soon>Coming soon to the App Store.</p>
   </section>
+
+  <section id="support" aria-labelledby="support-title">
+    <h2 id="support-title">Support</h2>
+    <p>If pages aren't widening:</p>
+    <ol class="steps">
+      <li><span><b>Open the Bezel app once.</b> It records your screen's layout so the extension knows when to run.</span></li>
+      <li><span><b>Check the extension is allowed.</b> In Bezel's Safari settings, All Websites should be set to Allow.</span></li>
+      <li><span><b>Open the <a href="https://test.bezel.qcqm.com/">test page</a>.</b> It shows straight away whether Bezel is working.</span></li>
+    </ol>
+    <p style="margin-top:20px">Bezel only widens pages on the iPhone Duo front screen in portrait. On a site that looks wrong, long-press the Bezel button and choose Normal.</p>
+    <p>Still stuck, or have an idea? Email <a href="mailto:contact@qcqm.com">contact@qcqm.com</a>.</p>
+  </section>
 </div>
 
 <article class="policy" data-view="privacy" id="privacy" aria-labelledby="privacy-title" tabindex="-1">
@@ -236,7 +249,7 @@ footer a{color:var(--muted)}
   <svg class="qcqm tile-light" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="QCQM"><rect width="512" height="512" rx="115" fill="#0F1012"/><g fill="none" stroke="#F4F4F0" stroke-width="26" stroke-linecap="butt" stroke-linejoin="round"><rect x="130" y="116" width="84" height="104" rx="36"/><path d="M180 190 L222 240"/></g><path d="M382 152 A36 36 0 0 0 346 116 H334 A36 36 0 0 0 298 152 V184 A36 36 0 0 0 334 220 H346 A36 36 0 0 0 382 184" fill="none" stroke="#9A9EA6" stroke-width="18" stroke-linecap="butt" stroke-linejoin="round"/><path d="M130 405 V292 L172 354 L214 292 V405" fill="none" stroke="#9A9EA6" stroke-width="18" stroke-linecap="butt" stroke-linejoin="round"/><path d="M310 304 L374 344 L310 384" fill="none" stroke="#2EDACB" stroke-width="20" stroke-linecap="butt" stroke-linejoin="round"/></svg>
   <svg class="qcqm tile-dark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="QCQM"><rect width="512" height="512" rx="115" fill="#F4F4F0"/><g fill="none" stroke="#0F1012" stroke-width="26" stroke-linecap="butt" stroke-linejoin="round"><rect x="130" y="116" width="84" height="104" rx="36"/><path d="M180 190 L222 240"/></g><path d="M382 152 A36 36 0 0 0 346 116 H334 A36 36 0 0 0 298 152 V184 A36 36 0 0 0 334 220 H346 A36 36 0 0 0 382 184" fill="none" stroke="#5E636B" stroke-width="18" stroke-linecap="butt" stroke-linejoin="round"/><path d="M130 405 V292 L172 354 L214 292 V405" fill="none" stroke="#5E636B" stroke-width="18" stroke-linecap="butt" stroke-linejoin="round"/><path d="M310 304 L374 344 L310 384" fill="none" stroke="#0E9C90" stroke-width="20" stroke-linecap="butt" stroke-linejoin="round"/></svg>
   </span>
-  <span><a href="#privacy">Privacy</a> · <a href="https://test.bezel.qcqm.com/">Test page</a> · © 2026 QCQM</span>
+  <span><a href="#support">Support</a> · <a href="#privacy">Privacy</a> · <a href="https://test.bezel.qcqm.com/">Test page</a> · © 2026 QCQM</span>
 </footer>
 </div>
 
