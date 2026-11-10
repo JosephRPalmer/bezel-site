@@ -61,7 +61,7 @@ section{padding:56px 0 8px}
 .compare figure{margin:0;text-align:center}
 .compare figcaption{font:600 .9412rem/1.3 var(--rounded);color:var(--muted);margin-top:8px}
 .compare figcaption b{color:var(--fg)}
-.compare svg{width:100%;max-width:220px;height:auto;display:block;margin:0 auto}
+.compare img{width:100%;max-width:260px;height:auto;display:block;margin:0 auto;border-radius:22px;border:3px solid var(--fg);background:#0D1013}
 
 .reasons{display:grid;gap:16px;list-style:none;margin:20px 0 0;padding:0}
 @media (min-width:760px){.reasons{grid-template-columns:repeat(3,1fr)}}
@@ -131,26 +131,11 @@ footer a{color:var(--muted)}
 
     <div class="compare" role="group" aria-label="Before and after Bezel">
       <figure>
-        <svg viewBox="0 0 200 330" role="img" aria-labelledby="before-t">
-          <title id="before-t">Without Bezel: the web page stops short, leaving an empty strip beside Safari's toolbar.</title>
-          <rect x="4" y="4" width="192" height="322" rx="26" fill="none" stroke="var(--fg)" stroke-width="3"/>
-          <rect x="12" y="12" width="176" height="306" rx="19" fill="var(--strip)"/>
-          <rect x="12" y="12" width="128" height="306" rx="19" fill="var(--page)"/>
-          <rect x="128" y="12" width="12" height="306" fill="var(--page)"/>
-          <g fill="var(--bar)"><rect x="26" y="34" width="70" height="12" rx="6"/><rect x="26" y="62" width="100" height="58" rx="8"/><rect x="26" y="134" width="96" height="7" rx="3.5"/><rect x="26" y="149" width="88" height="7" rx="3.5"/><rect x="26" y="164" width="98" height="7" rx="3.5"/><rect x="26" y="186" width="100" height="58" rx="8"/><rect x="26" y="258" width="92" height="7" rx="3.5"/><rect x="26" y="273" width="80" height="7" rx="3.5"/></g>
-          <g fill="var(--card)" stroke="var(--fg)" stroke-opacity=".55" stroke-width="1.5"><circle cx="170" cy="104" r="9"/><circle cx="170" cy="130" r="9"/><circle cx="170" cy="250" r="9"/><circle cx="170" cy="276" r="9"/></g>
-        </svg>
+        <img src="img/before.jpg" width="699" height="1017" alt="Without Bezel: a magazine page about orcas stops short, leaving a dark empty strip beside Safari's toolbar buttons." loading="eager">
         <figcaption>Without Bezel</figcaption>
       </figure>
       <figure>
-        <svg viewBox="0 0 200 330" role="img" aria-labelledby="after-t">
-          <title id="after-t">With Bezel: the web page fills the screen right up to the edge, under Safari's toolbar.</title>
-          <rect x="4" y="4" width="192" height="322" rx="26" fill="none" stroke="var(--fg)" stroke-width="3"/>
-          <rect x="12" y="12" width="176" height="306" rx="19" fill="var(--page)"/>
-          <g fill="var(--bar)"><rect x="26" y="34" width="70" height="12" rx="6"/><rect x="26" y="62" width="148" height="58" rx="8"/><rect x="26" y="134" width="140" height="7" rx="3.5"/><rect x="26" y="149" width="128" height="7" rx="3.5"/><rect x="26" y="164" width="144" height="7" rx="3.5"/><rect x="26" y="186" width="148" height="58" rx="8"/><rect x="26" y="258" width="136" height="7" rx="3.5"/><rect x="26" y="273" width="116" height="7" rx="3.5"/></g>
-          <rect x="146" y="14" width="40" height="302" fill="#2DD4BF" fill-opacity=".16"/>
-          <g fill="var(--card)" stroke="var(--fg)" stroke-opacity=".55" stroke-width="1.5"><circle cx="170" cy="104" r="9"/><circle cx="170" cy="130" r="9"/><circle cx="170" cy="250" r="9"/><circle cx="170" cy="276" r="9"/></g>
-        </svg>
+        <img src="img/after.jpg" width="699" height="1017" alt="With Bezel: the same page fills the screen, the underwater illustration running right under Safari's toolbar buttons." loading="eager">
         <figcaption><b>With Bezel</b></figcaption>
       </figure>
     </div>
